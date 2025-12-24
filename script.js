@@ -4,7 +4,7 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.getElementById('navLinks');
 
-if (menuToggle && navLinks) {
+if (menuToggle) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
@@ -43,13 +43,11 @@ sections.forEach((section) => observer.observe(section));
 
 // ===============================
 // 3) TYPEWRITER EFFECT (HERO ROLE)
-// UPDATED FOR NURUL HIDAYU (INTERNSHIP)
 // ===============================
 const roles = [
-  'Information Technology Student',
-  'Software Development Intern',
-  'UI / UX Design Enthusiast',
-  'Database & SQL Learner'
+  'Multimedia Computing Student',
+  'UI / UX Enthusiast',
+  'Unity & Web Developer'
 ];
 
 const roleElement = document.getElementById('typed-role');
@@ -62,7 +60,7 @@ function typeLoop() {
 
   if (typingForward) {
     charIndex++;
-    if (charIndex === current.length + 3) typingForward = false;
+    if (charIndex === current.length + 4) typingForward = false;
   } else {
     charIndex--;
     if (charIndex === 0) {
@@ -72,7 +70,7 @@ function typeLoop() {
   }
 
   roleElement.textContent = current.substring(0, Math.max(charIndex, 1));
-  setTimeout(typeLoop, 85);
+  setTimeout(typeLoop, 90);
 }
 
 if (roleElement) typeLoop();
@@ -84,7 +82,7 @@ if (roleElement) typeLoop();
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
-if (contactForm && formStatus) {
+if (contactForm) {
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
     formStatus.classList.remove('error');
@@ -109,7 +107,7 @@ if (contactForm && formStatus) {
     formStatus.textContent = 'Sending message...';
 
     setTimeout(() => {
-      formStatus.textContent = 'Thank you! Your message has been sent (demo only).';
+      formStatus.textContent = 'Thank you! Your message has been sent.';
       contactForm.reset();
     }, 700);
   });
@@ -126,7 +124,7 @@ window.addEventListener('scroll', () => {
     const top = el.getBoundingClientRect().top;
     const winHeight = window.innerHeight;
 
-    if (top < winHeight - 120) {
+    if (top < winHeight - 100) {
       el.classList.add('active');
     }
   });
@@ -136,7 +134,6 @@ window.addEventListener('scroll', () => {
 // ===============================
 // 6) FOOTER YEAR AUTO UPDATE
 // ===============================
-const yearSpan = document.getElementById('year');
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
